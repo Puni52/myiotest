@@ -27,7 +27,11 @@ public class Test1 {
 
         //3.通过正则表达式，把其中符合要求的数据获取出来
         ArrayList<String> familyNameTempList= getData(familyNameStr,"(.{4})(，|。)",1);
-        System.out.println(familyNameTempList);
+        ArrayList<String> boyNameTempList= getData(boyNameStr,"([\\u4E00-\\u9FA5]{2})(、|。)",1);
+        ArrayList<String> girlNameTempList= getData(girlNameStr,"(.. ){4}..",0);
+
+        System.out.println(girlNameTempList);
+
     }
 
 
