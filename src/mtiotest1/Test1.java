@@ -30,8 +30,36 @@ public class Test1 {
         ArrayList<String> boyNameTempList= getData(boyNameStr,"([\\u4E00-\\u9FA5]{2})(、|。)",1);
         ArrayList<String> girlNameTempList= getData(girlNameStr,"(.. ){4}..",0);
 
-        System.out.println(girlNameTempList);
+        //4.处理数据
+        //familyNameTempList（姓氏）
+        //处理方案：把每一个姓氏拆开并添加到一个新的集合中
+        ArrayList<String> familyNameList=new ArrayList();
+        for(String str:familyNameTempList){
+            for(int i=0;i<str.length();i++){
+                char c=str.charAt(i);
+                familyNameList.add(c+"");
+            }
+        }
 
+        //boyNameTempList（男生的名字）
+        //处理方案：去重
+        ArrayList<String>boyNameList=new ArrayList();
+        for(String str:boyNameTempList){
+            if(!boyNameList.contains(str)){
+                boyNameList.add(str);
+            }
+        }
+
+        //girlNameTempList（女生的名字）
+        //处理方案：把每一个元素用空格切割
+        ArrayList<String>girlNameList=new ArrayList();
+        for(String str:girlNameTempList){
+            String[]arr=str.split(" ");
+            for (String s : arr) {
+                girlNameList.add(s);
+            }
+        }
+        System.out.println(girlNameList);
     }
 
 

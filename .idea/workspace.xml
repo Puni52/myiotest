@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="da65f567-e8d0-478e-a6a4-af640720491b" name="更改" comment="爬取姓氏">
+    <list default="true" id="da65f567-e8d0-478e-a6a4-af640720491b" name="更改" comment="爬取名字">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/mtiotest1/Test1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mtiotest1/Test1.java" afterDir="false" />
     </list>
@@ -80,7 +80,7 @@
       <workItem from="1705890762680" duration="1947000" />
       <workItem from="1705892718884" duration="4831000" />
       <workItem from="1705905112250" duration="156000" />
-      <workItem from="1705905278174" duration="300000" />
+      <workItem from="1705905278174" duration="1015000" />
     </task>
     <task id="LOCAL-00001" summary="爬取姓氏">
       <option name="closed" value="true" />
@@ -90,7 +90,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705896601453</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="爬取名字">
+      <option name="closed" value="true" />
+      <created>1705905759818</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1705905759818</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -98,6 +106,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="爬取姓氏" />
-    <option name="LAST_COMMIT_MESSAGE" value="爬取姓氏" />
+    <MESSAGE value="爬取名字" />
+    <option name="LAST_COMMIT_MESSAGE" value="爬取名字" />
   </component>
 </project>
