@@ -1,11 +1,16 @@
 package mtiotest1;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -40,16 +45,14 @@ public class Test1 {
                 familyNameList.add(c+"");
             }
         }
-
         //boyNameTempList（男生的名字）
         //处理方案：去重
-        ArrayList<String>boyNameList=new ArrayList();
+        ArrayList<String>boyNameList=new ArrayList<>();
         for(String str:boyNameTempList){
             if(!boyNameList.contains(str)){
                 boyNameList.add(str);
             }
         }
-
         //girlNameTempList（女生的名字）
         //处理方案：把每一个元素用空格切割
         ArrayList<String>girlNameList=new ArrayList();
@@ -59,8 +62,68 @@ public class Test1 {
                 girlNameList.add(s);
             }
         }
-        System.out.println(girlNameList);
+        //5.生成数据
+        //姓名（唯一）-性别-年龄
+        ArrayList<String>list=getInfos(familyNameList,boyNameList,girlNameList,70,50);
+        Collections.shuffle(list);
+        System.out.println(list);
+
+        //6.写出数据到本地
+        BufferedWriter bw=new BufferedWriter(new FileWriter("C:\\Users\\52Hertz\\Desktop\\Temporary\\names.txt"));
+        for(String str:list){
+            bw.write(str);
+            bw.newLine();
+        }
+        bw.close();
+
     }
+//作用：获取男生和女生的信息：张三-男-23
+//参数一：姓氏集合
+//参数二：男名集合
+//参数三：女名集合
+//参数四：男名个数
+//参数五：女名个数
+//
+//
+    public static ArrayList<String>getInfos(ArrayList<String> familyNameList,ArrayList<String>boyNameList,ArrayList<String>girlNameList,int boyCount,int girlCount){
+        //1.生成男生不重复的名字
+        HashSet<String>boys=new HashSet<>();
+        while(true){
+            if(boys.size()==boyCount){
+                break;
+            }
+            //随机
+            Collections.shuffle(familyNameList);
+            Collections.shuffle(boyNameList);
+            boys.add(familyNameList.get(0)+boyNameList.get(0));
+        }
+        //2.生成女生不重复的名字
+        HashSet<String>girls=new HashSet<>();
+        while(true){
+            if(girls.size()==girlCount){
+                break;
+            }
+            //随机
+            Collections.shuffle(familyNameList);
+            Collections.shuffle(girlNameList);
+            girls.add(familyNameList.get(0)+girlNameList.get(0));
+        }
+        //3.男生 性别 年龄
+        ArrayList<String> list=new ArrayList<>();
+        Random r=new Random();
+        for(String boyName:boys){
+            int age = r.nextInt(10) + 18;
+            list.add(boyName+"-男-"+age);
+        }
+        //4.女生 性别 年龄
+        for(String girlName:girls){
+            int age = r.nextInt(5) + 18;
+            list.add(girlName+"-女-"+age);
+        }
+        return list;
+    }
+
+
 
 
 //    作用：根据正则表达式获取字符串中的数据
